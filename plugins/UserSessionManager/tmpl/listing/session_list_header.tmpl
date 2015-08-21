@@ -1,0 +1,11 @@
+<mt:setvarblock name="system_msg" append="1">
+  <div id="msg-container">
+  <mt:if name="request.saved_deleted">
+    <mtapp:statusmsg
+      id="saved-deleted"
+      class="success">
+      <__trans phrase="The session has been deleted from the database.">
+    </mtapp:statusmsg>
+  </mt:if>
+  </div>
+</mt:setvarblock>

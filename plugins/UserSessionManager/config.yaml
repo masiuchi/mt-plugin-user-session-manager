@@ -1,0 +1,34 @@
+name: User Session Manager
+version: 0.01
+
+plugin_link: https://github.com/masiuchi/mt-plugin-user-session-manager
+description: <__trans phrase="Enable to remove user session via admin screen.">
+
+author_name: Masahiro Iuchi
+author_link: https://github.com/masiuchi
+
+list_properties:
+  session: $UserSessionManager::MT::Session::Listing::list_props
+
+listing_screens:
+  session: $UserSessionManager::MT::Session::Listing::list_screens
+
+list_actions:
+  session: $UserSessionManager::MT::Session::Listing::list_actions
+
+applications:
+  cms:
+    callbacks:
+      cms_pre_load_filtered_list.session: $UserSessionManager::MT::Session::Listing::filter_list
+      cms_filtered_list_param.session: $UserSessionManager::MT::Session::Listing::filter_param
+
+    menus:
+      user:session:
+        label: Session
+        order: 300
+        mode: list
+        args:
+          _type: session
+        view:
+          - system
+
